@@ -1,0 +1,26 @@
+{
+  "name": "pinterest",
+  "version": "1.0.0",
+  "description": "Final work - pinterest",
+  "source": "src/index.html",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "parcel",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juju1321/Pinterest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juju1321/Pinterest/issues"
+  },
+  "homepage": "https://github.com/Juju1321/Pinterest#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.1",
+    "parcel": "^2.8.1",
+    "sass": "^1.56.2"
+  }
+}
