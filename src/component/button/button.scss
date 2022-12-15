@@ -1,0 +1,21 @@
+
+.menu.open ul {
+      display: block;
+   }
+   .menu__button {
+      white-space: nowrap;
+      height: 48px;
+      min-width: 60px;
+      background-color: black;
+      border-radius: 30px;
+      padding: 0 30px;
+      position: relative;
+   }
+   .menu__button:hover{
+      background-color: rgb(56, 56, 56);
+      transition: all .3s;
+      transform: scale(1.1);
+   }
+   .menu__button span {
+      color: aliceblue;
+}
