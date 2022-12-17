@@ -2,9 +2,9 @@ import { createElemetns } from '../src/utils/createElemet.js'
 import { buttonSelectDesk } from './component/button/button.js'
 import { cards } from './component/card/store.js'
 import { renderElem } from './component/card/card.js'
+import '../src/container/board/masonry.js'
 
 const menu = document.querySelector('.menu')
-
 
 // выпадающийй список при нажатии кнопки в хедере
 const menuListArr = ['Desk 1', 'Desk 2', 'Desk 3']
