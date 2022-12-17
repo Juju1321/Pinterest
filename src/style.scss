@@ -1,5 +1,60 @@
+@import url('./style/nullstyle.scss');
+@import url('./style/fonts.scss');
+@import url('../src/component/button/button.scss');
+@import url('../src/component/card/card.scss');
+@import url('./component/form_pin/form_pin.scss');
 
+body{
+   font-family: 'PT-Sans';
+   .container {
+      padding: 0 15px;
+      .wrapper {
+         display: flex;
+         justify-content: space-around;
+         align-items: center;
+         margin-top: 20px;
+         .header__logo {
+            background-image: url('../assets/icons/pinterest-svgrepo-com.svg');
+            width: 40px ;
+            height: 40px;
+            background-repeat: no-repeat;
+         }
 
-
-
-@import "./component/form_pin/form_pin.scss"
+         .search {
+            height: 50px;
+            border-radius: 83px;
+            width: 80%;
+            font-size: 16px;
+            background: url('../assets/icons/308581-9e9e9e.svg') no-repeat 3px 3px, rgb(229, 228, 228);
+            background-position:1.5% 50%, 50%;
+             background-size: auto 35%;
+             padding: 5px 5px 5px 60px;
+             font-family: 'PT-Sans-reg';
+         } 
+         .menu__list{
+            min-height: 50px;
+            min-width: 180px;
+            margin-top: 10px;
+            box-shadow: 1px 1px 10px rgb(197, 197, 197);
+            border-radius: 10px;
+            position: absolute;
+            z-index: 1;
+            right: 45px;
+            text-align: center;
+            padding: 5px 0;
+            background-color: #fff;
+         }
+         .menu__list a{
+            color:black;
+            font-size: 16px;
+         }
+         .menu__list li{
+         padding: 5px;
+         }
+         .menu__list li:hover{
+            background-color:rgb(230, 230, 230);
+            border-radius: 5px;
+         }
+    }
+  }
+}
