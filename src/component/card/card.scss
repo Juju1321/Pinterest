@@ -1,0 +1,34 @@
+//.item-wrapper и .cards-wrapper - служебные стили. Добавила для понимания того что происходит на странице 
+.cards-wrapper {
+  color: rgb(17, 17, 17);
+  display: flex;
+  margin: 0px -5px;
+  padding-top: 20px;
+
+  .item-wrapper {
+    padding: 0px 5px;
+    flex: 0 1 25%;
+
+    .picture {
+      border-radius: 16px;
+      cursor: zoom-in;
+    }
+
+    .card-details {
+      display: flex;
+      padding: 8px 6px 16px;
+      align-items: center;
+
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      .card-description__text {
+        font-size: 14px;
+      }
+    }
+  }
+}

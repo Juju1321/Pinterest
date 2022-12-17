@@ -1,6 +1,7 @@
 @import url('./style/nullstyle.scss');
 @import url('./style/fonts.scss');
 @import url('../src/component/button/button.scss');
+@import url('../src/component/card/card.scss');
 
 
 body{
@@ -52,11 +53,6 @@ body{
             background-color:rgb(230, 230, 230);
             border-radius: 5px;
          }
-      }
-   }
+    }
+  }
 }
-
-
-
-
-
