@@ -1,5 +1,6 @@
 import { createElemetns } from '../src/utils/createElemet.js'
 import { buttonSelectDesk } from './component/button/button.js'
+import { cards } from './container/board/board.js'
 const menu = document.querySelector('.menu')
 
 // выпадающийй список при нажатии кнопки в хедере
