@@ -1,24 +1,18 @@
-import { createElements } from "../../utils/createElemet.js"
+import { createElemetns } from "../../utils/createElemet.js";
 
 const formWrapper = document.getElementById("form-wrapper")
-const createElement = (tag, options) => {
-   const elem = document.createElement(tag)
-   Object.keys(options).forEach(item => {
-      elem[item] = options[item]
-   })
-   return elem
-}
-const form = createElement("form", {
+
+const form = createElemetns("form", {
    className: "form",
    action: "#",
 })
 
-const formName = createElement("p", {
+const formName = createElemetns("p", {
    className: "form__name",
    textContent: "Жалоба на пин",
 })
 
-const formControl = createElement("div", {
+const formControl = createElemetns("div", {
    className: "form__control",
 })
 formWrapper.appendChild(form)
@@ -79,20 +73,20 @@ const formText = [
    },
 ]
 formText.forEach(item => {
-   const formControlRadio = createElement("div", {
+   const formControlRadio = createElemetns("div", {
       className: "form__control-radio",
    })
-   const formInput = createElement("input", {
+   const formInput = createElemetns("input", {
       className: "form__input",
       type: "radio",
       name: "pin",
    })
-   const formLabelRadio = createElement("label", {
+   const formLabelRadio = createElemetns("label", {
       className: "form__label-radio",
       for: "pin",
       textContent: item.textLabel,
    })
-   const formInputText = createElement("p", {
+   const formInputText = createElemetns("p", {
       className: "form__input_text",
       textContent: item.text,
    })
@@ -104,10 +98,10 @@ formText.forEach(item => {
 })
 
 
-const buttons = createElement("div", {
+const buttons = createElemetns("div", {
    className: "buttons",
 })
-const btnChancel = createElement("button", {
+const btnChancel = createElemetns("button", {
    className: "form_btn",
    textContent: "Отмена"
 })
@@ -120,8 +114,9 @@ const btnChancel = createElement("button", {
 //    chancelBtnClickHandler('pin')
 // })
 
-const btnSend = createElement("button", {
+const btnSend = createElemetns("button", {
    className: "form_btn",
+   className: "red_btn",
    type: "submit",
    textContent: "Oтправить"
 })
