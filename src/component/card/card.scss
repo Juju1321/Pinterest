@@ -1,15 +1,16 @@
-//.item-wrapper и .cards-wrapper - служебные стили. Добавила для понимания того что происходит на странице 
 .cards-wrapper {
-  color: rgb(17, 17, 17);
-  display: flex;
-  margin: 0px -5px;
-  padding-top: 20px;
+  padding: 10px 0px;
+  margin: 0 auto;
+  margin-top: 6px;
 
   .item-wrapper {
-    padding: 0px 5px;
-    flex: 0 1 25%;
+    padding-bottom: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
 
     .picture {
+      width: 236px;
+      height: auto;
       border-radius: 16px;
       cursor: zoom-in;
     }

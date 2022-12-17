@@ -38,9 +38,11 @@ body{
             box-shadow: 1px 1px 10px rgb(197, 197, 197);
             border-radius: 10px;
             position: absolute;
+            z-index: 1;
             right: 45px;
             text-align: center;
             padding: 5px 0;
+            background-color: #fff;
          }
          .menu__list a{
             color:black;

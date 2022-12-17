@@ -22,5 +22,8 @@
     "@parcel/transformer-sass": "^2.8.1",
     "parcel": "^2.8.1",
     "sass": "^1.56.2"
+  },
+  "dependencies": {
+    "masonry-layout": "^4.2.2"
   }
 }
