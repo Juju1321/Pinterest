@@ -1,31 +1,41 @@
+import { createElemetns } from "../../utils/createElemet.js";
+
 export const renderElem = (element) => {
   const root = document.querySelector('.cards-wrapper')
   const { avatarSrc, text, imageSrc } = element;
 
-  const card = document.createElement('div');
-  card.className = 'item-wrapper';
+  const card = createElemetns("div", {
+    className: "item-wrapper",
+ })
   root.appendChild(card);
 
-  const imgWrapper = document.createElement('div');
-  imgWrapper.className = 'picture-wrapper';
+
+  const imgWrapper = createElemetns("div", {
+    className: "picture-wrapper",
+ })
   card.appendChild(imgWrapper);
 
-  const picture = document.createElement('img');
-  picture.src = imageSrc;
-  picture.className = 'picture';
+
+  const picture = createElemetns("img", {
+    className: "picture",
+    src: imageSrc,
+ })
   imgWrapper.appendChild(picture);
 
-  const cardDetails = document.createElement('div');
-  cardDetails.className = 'card-details';
+  const cardDetails = createElemetns("div", {
+    className: "card-details",
+ })
   card.appendChild(cardDetails);
 
-  const userAvatar = document.createElement('img');
-  userAvatar.src = avatarSrc;
+  const userAvatar = createElemetns("img", {
+    src: avatarSrc,
+ })
   cardDetails.appendChild(userAvatar);
 
-  const imgDescription = document.createElement('div');
-  imgDescription.innerHTML = text;
-  imgDescription.className = 'card-description__text';
+  const imgDescription = createElemetns("div", {
+    className: "card-description__text",
+    innerHTML: text,
+ })
   cardDetails.appendChild(imgDescription);
 
   const buttonWrapper = document.createElement('div');
@@ -41,4 +51,3 @@ export const renderElem = (element) => {
   buttonSave.textContent = 'Сохранить';
   buttonShowd.appendChild(buttonSave);
 }
-
