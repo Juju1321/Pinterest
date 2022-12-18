@@ -27,5 +27,18 @@ export const renderElem = (element) => {
   imgDescription.innerHTML = text;
   imgDescription.className = 'card-description__text';
   cardDetails.appendChild(imgDescription);
+
+  const buttonWrapper = document.createElement('div');
+  buttonWrapper.className = 'button-wrapper';
+  imgWrapper.appendChild(buttonWrapper);
+
+  const buttonShowd = document.createElement('div');
+  buttonShowd.className = 'button-showd';
+  buttonWrapper.appendChild(buttonShowd);
+
+  const buttonSave = document.createElement('button');
+  buttonSave.className = 'button-save';
+  buttonSave.textContent = 'Сохранить';
+  buttonShowd.appendChild(buttonSave);
 }
 
