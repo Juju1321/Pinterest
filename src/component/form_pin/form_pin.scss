@@ -1,12 +1,17 @@
+@import url('../../style/fonts.scss');
+
+
+
 #form-wrapper {
    max-width: 540px;
    border-radius: 16px;
+   box-shadow: inset 0px 0px 10px 1px rgb(237, 237, 237);
 }
 
 .form__name {
    font-size: 28px;
    font-weight: 500;
-   font-family: 'PT-Sans-reg';
+   font-family: 'PT-Sans';
    padding: 24px;
    text-align: center;
 }
@@ -16,7 +21,7 @@
    padding: 8px 16px;
    overflow: scroll;
    overflow-x:hidden;
-   box-shadow: inset 0px 0px 10px 1px rgb(220, 217, 217);
+
 }
 
 .form__input {
