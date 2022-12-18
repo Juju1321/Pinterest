@@ -1,4 +1,5 @@
 import { createElemetns } from "../../utils/createElemet.js";
+import { popupElement } from '../popup/popup.js'
 
 export const renderElem = (element) => {
   const root = document.querySelector('.cards-wrapper')
@@ -55,16 +56,29 @@ export const renderElem = (element) => {
   buttonShowd.appendChild(buttonSave);
 
   const buttonMore = createElemetns('button', {
-    className: 'button-more',
+    className: 'popup',
   })
   buttonShowd.appendChild(buttonMore);
   buttonMore.addEventListener('click', () => {
-    
+    popup.classList.toggle('open');
   });
 
-  const buttonMorePath = createElemetns('button', {
-    className: 'button-more-path',
-    textContent: ' ',
-  })
-  buttonMore.appendChild(buttonMorePath);
+  // const popupBtn = document.querySelector('.popup')
+
+  //   const popupListArr = ['Desk 1', 'Desk 2', 'Desk 3']
+  //   const listUl = document.createElement('ul')
+  //   listUl.className = 'popup__list'
+  //   popupBtn.appendChild(listUl)
+  //   document.querySelector('.popup__list').hidden = true
+
+  //   for (let i = 0; i < popupListArr.length; i++) {
+  //       let li = document.createElement('li')
+  //       const linkDesk = createElemetns('a', {
+  //         href: '#',
+  //         className: 'popup__item',
+  //         innerText: popupListArr[i]
+  //       })
+  //       li.appendChild(linkDesk)
+  //       listUl.appendChild(li);
+  //   };
 }

@@ -74,7 +74,7 @@
       background-color: #970000;
     }
 
-    .button-more {
+    .popup {
       background-color: #e0dfdf;
       border-radius: 50%;
       color: #000;
@@ -90,7 +90,10 @@
       &:hover {
         background-color: #ffffff;
       }
+
+      .popur.open ul {
+        display: block;
+      }
     }
-    
   }
 }
