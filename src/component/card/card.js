@@ -38,16 +38,33 @@ export const renderElem = (element) => {
  })
   cardDetails.appendChild(imgDescription);
 
-  const buttonWrapper = document.createElement('div');
-  buttonWrapper.className = 'button-wrapper';
+  const buttonWrapper = createElemetns('div' , {
+    className: "button-wrapper",
+  })
   imgWrapper.appendChild(buttonWrapper);
 
-  const buttonShowd = document.createElement('div');
-  buttonShowd.className = 'button-showd';
+  const buttonShowd = createElemetns('div', {
+    className: 'button-showd',
+  })
   buttonWrapper.appendChild(buttonShowd);
 
-  const buttonSave = document.createElement('button');
-  buttonSave.className = 'button-save';
-  buttonSave.textContent = 'Сохранить';
+  const buttonSave = createElemetns('button', {
+    className: 'button-save',
+    textContent: 'Сохранить ',
+  })
   buttonShowd.appendChild(buttonSave);
+
+  const buttonMore = createElemetns('button', {
+    className: 'button-more',
+  })
+  buttonShowd.appendChild(buttonMore);
+  buttonMore.addEventListener('click', () => {
+    
+  });
+
+  const buttonMorePath = createElemetns('button', {
+    className: 'button-more-path',
+    textContent: ' ',
+  })
+  buttonMore.appendChild(buttonMorePath);
 }
