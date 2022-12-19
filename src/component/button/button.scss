@@ -10,6 +10,12 @@
       border-radius: 30px;
       padding: 0 30px;
       position: relative;
+      @media screen and (max-width:767px) {
+         padding: 0 20px;
+      }
+      @media screen and (max-width:479px) {
+         padding: 0 10px;
+      }
    }
    .menu__button:hover{
       background-color: rgb(56, 56, 56);
@@ -18,4 +24,7 @@
    }
    .menu__button span {
       color: aliceblue;
+      @media screen and (max-width:479px) {
+         font-size: 14px;
+      }
 }
