@@ -12,9 +12,9 @@ const menu = document.querySelector('.menu')
 // выпадающий список при нажатии кнопки в хедере
 
 const data = {
-   'Desk 1': [],
-   'Desk 2': [],
-   'Desk 3': [],
+   'Доска 1': [],
+   'Доска 2': [],
+   'Доска 3': [],
 }
 console.log(data)
 const keys = Object.keys(data)
