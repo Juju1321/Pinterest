@@ -15,18 +15,18 @@ const buttonAll = createElemetns('div', {
 addModuleMenuDesks.appendChild(buttonAll)
 const buttonAddDeskOne = createElemetns('button', {
    className: 'desk__one',
-   innerText: 'Desk 1'
+   innerText: 'Доска 1'
 })
 buttonAll.appendChild(buttonAddDeskOne)
 const buttonAddDeskTwo = createElemetns('button', {
    className: 'desk__two',
-   innerText: 'Desk 2'
+   innerText: 'Доска 2'
 })
 buttonAll.appendChild(buttonAddDeskTwo)
 
 const buttonAddDeskThree = createElemetns('button', {
    className: 'desk__three',
-   innerText: 'Desk 3'
+   innerText: 'Доска 3'
 })
 buttonAll.appendChild(buttonAddDeskThree)
 
