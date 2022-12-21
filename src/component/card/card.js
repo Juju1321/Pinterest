@@ -64,7 +64,7 @@ export const renderElem = (element) => {
   const menuCards = createElemetns('div', {
     className: 'menu__cards',
   })
-  buttonWrapper.appendChild(menuCards)
+  imgWrapper.appendChild(menuCards)
 
   const menuTitle = createElemetns('p', {
     className: 'menu__title',
