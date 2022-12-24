@@ -1,5 +1,8 @@
 import { createElemetns } from "../../utils/createElemet.js";
 import { popupElement } from '../popup/popup.js'
+import { showPopUp } from "../popup/popup.js";
+import { addModuleMenuDesks } from "../popup/popup.js";
+import { formWrapper } from "../form_pin/form_pin.js";
 
 export const renderElem = (element) => {
    const root = document.querySelector('.cards-wrapper')
@@ -47,7 +50,6 @@ export const renderElem = (element) => {
    })
    imgWrapper.appendChild(menuCard);
 
-
    const buttonWrapper = createElemetns('div', {
       className: "button-wrapper",
    })
@@ -73,7 +75,6 @@ export const renderElem = (element) => {
    })
    menuCard.appendChild(menuCards)
 
-
    const menuTitle = createElemetns('p', {
       className: 'menu__title',
       innerHTML: 'Этот пин похож на те, которые вы недавно просматривали'
@@ -90,47 +91,57 @@ export const renderElem = (element) => {
    })
    cardsMenu.appendChild(menuListCards)
 
+   // const menuList = [
+   //    {
+   //       id: 1,
+   //       innerHTML: 'Добавить на доску'
+   //    },
+
+   //    {
+   //       id: 2,
+   //       innerHTML: 'Пожаловаться'
+   //    }
+   // ]
 
 
+   // const renderMenuList = (elem) => {
+   //    const { innerHTML } = elem
 
+   //    const menuItemCard = createElemetns('li', {
+   //       className: 'menu__item-card',
+   //       innerHTML: innerHTML,
+   //    })
+   //    menuListCards.appendChild(menuItemCard)
+   // }
 
-   const menuList = [
-      {
-         id: 1,
-         innerHTML: 'Добавить на доску'
-      },
+   // menuList.forEach(elem => {
+   //    renderMenuList(elem)
+   // })
 
-      {
-         id: 2,
-         innerHTML: 'Пожаловаться'
-      }
-   ]
-
-   const renderMenuList = (elem) => {
-      const { innerHTML } = elem
-
-      const menuItemCard = createElemetns('li', {
-         className: 'menu__item-card',
-         innerHTML: innerHTML,
-      })
-      menuListCards.appendChild(menuItemCard)
-   }
-
-   menuList.forEach(elem => {
-      renderMenuList(elem)
+   const menuItemCardFirst = createElemetns('li', {
+      className:'menu__item-card',
+      id: 1,
+      innerHTML: 'Добавить на доску'
    })
+   menuListCards.appendChild(menuItemCardFirst)
 
+   menuItemCardFirst.addEventListener('click', () => {
+      showPopUp(addModuleMenuDesks, formWrapper)
+})
 
+const menuItemCardLast = createElemetns('li', {
+   className: 'menu__item-card',
+   id: 2,
+   innerHTML: 'Пожаловаться'
+})
+menuListCards.appendChild(menuItemCardLast)
+
+menuItemCardLast.addEventListener('click', () => {
+   showPopUp(formWrapper, addModuleMenuDesks)
+})
 
    menuDots.addEventListener('click', () => {
       menuCard.classList.toggle('open');
    })
-
-   // document.addEventListener('click', (event) => {
-   //    if (event.target.closest('.menu-cards__elem'))
-   //       menuCard.classList.remove('open');
-   // })
-
 }
-
 

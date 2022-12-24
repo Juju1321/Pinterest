@@ -1,6 +1,14 @@
 import { createElemetns } from "../../utils/createElemet.js";
+import { hidePopUp } from "../popup/popup.js";
 
-const formWrapper = document.getElementById("form-wrapper")
+// const formWrapper = document.getElementById("form-wrapper")
+export const formWrapper = createElemetns("div", {
+   className:'form-wrapper'
+})
+
+formWrapper.addEventListener('click', (e) => {
+   e.stopPropagation()
+})
 
 const form = createElemetns("form", {
    className: "form",
@@ -105,6 +113,8 @@ const btnChancel = createElemetns("button", {
    className: "form_btn",
    textContent: "Отмена"
 })
+
+btnChancel.addEventListener('click', hidePopUp)
 
 // const chancelBtnClickHandler = (elem) => {
 //    e.currentTarget.formInput
