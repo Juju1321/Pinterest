@@ -47,7 +47,6 @@ export const renderElem = (element) => {
    })
    imgWrapper.appendChild(menuCard);
 
-
    const buttonWrapper = createElemetns('div', {
       className: "button-wrapper",
    })
@@ -73,7 +72,6 @@ export const renderElem = (element) => {
    })
    menuCard.appendChild(menuCards)
 
-
    const menuTitle = createElemetns('p', {
       className: 'menu__title',
       innerHTML: 'Этот пин похож на те, которые вы недавно просматривали'
@@ -89,10 +87,6 @@ export const renderElem = (element) => {
       className: 'menu__list-card',
    })
    cardsMenu.appendChild(menuListCards)
-
-
-
-
 
    const menuList = [
       {
@@ -120,16 +114,9 @@ export const renderElem = (element) => {
       renderMenuList(elem)
    })
 
-
-
    menuDots.addEventListener('click', () => {
       menuCard.classList.toggle('open');
    })
-
-   // document.addEventListener('click', (event) => {
-   //    if (event.target.closest('.menu-cards__elem'))
-   //       menuCard.classList.remove('open');
-   // })
 
 }
 
