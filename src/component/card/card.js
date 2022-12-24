@@ -117,13 +117,13 @@ export const renderElem = (element) => {
    // menuList.forEach(elem => {
    //    renderMenuList(elem)
    // })
-
    const menuItemCardFirst = createElemetns('li', {
       className:'menu__item-card',
       id: 1,
       innerHTML: 'Добавить на доску'
    })
    menuListCards.appendChild(menuItemCardFirst)
+
 
    menuItemCardFirst.addEventListener('click', () => {
       showPopUp(addModuleMenuDesks, formWrapper)
