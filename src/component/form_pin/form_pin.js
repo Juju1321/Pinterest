@@ -1,4 +1,5 @@
 import { createElemetns } from "../../utils/createElemet.js";
+import { showPopUp, hidePopUp } from "../popup/popUpDarkForm.js";
 
 const formWrapper = document.getElementById("form-wrapper")
 
@@ -106,28 +107,22 @@ const btnChancel = createElemetns("button", {
    textContent: "Отмена"
 })
 
-// const chancelBtnClickHandler = (elem) => {
-//    e.currentTarget.formInput
-// }
-
-// btnChancel.addEventListener("click", () => {
-//    chancelBtnClickHandler('pin')
-// })
+btnChancel.addEventListener("click", () => {
+   hidePopUp()
+})
 
 const btnSend = createElemetns("button", {
    className: "form_btn",
    className: "red_btn",
    type: "submit",
-   textContent: "Oтправить"
+   action: "https://...",
+   method: "post",
+   textContent: "Oтправить",
 })
 
-// const sendlBtnClickHandler = (elem) => {
-//   
-// }
-
-// btnSend.addEventListener("click", () => {
-//    sendlBtnClickHandler()
-// })
+btnSend.addEventListener("click", () => {
+   hidePopUp()
+})
 
 form.appendChild(buttons)
 buttons.appendChild(btnChancel)
