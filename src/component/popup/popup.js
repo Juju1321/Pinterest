@@ -46,9 +46,15 @@ popUpContainer.style.display = 'none'
 main.appendChild(popUpContainer)
 
 export const showPopUp = (element, remove) => {
-   popUpContainer.appendChild(element)
    popUpContainer.style.display = 'flex'
-   popUpContainer.removeChild(remove)
+   if(document.querySelector('.form-wrapper')){
+      popUpContainer.appendChild(element)
+      popUpContainer.removeChild(remove)
+   }else{
+      popUpContainer.appendChild(remove)
+      popUpContainer.appendChild(element)
+      popUpContainer.removeChild(remove)
+   }
 }
 
 export const hidePopUp = () => {
