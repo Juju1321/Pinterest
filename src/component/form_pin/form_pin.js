@@ -1,7 +1,6 @@
 import { createElemetns } from "../../utils/createElemet.js";
 import { hidePopUp } from "../popup/popup.js";
 
-// const formWrapper = document.getElementById("form-wrapper")
 export const formWrapper = createElemetns("div", {
    className:'form-wrapper'
 })
@@ -105,7 +104,6 @@ formText.forEach(item => {
    formControlRadio.appendChild(formInputText)
 })
 
-
 const buttons = createElemetns("div", {
    className: "buttons",
 })
@@ -116,28 +114,12 @@ const btnChancel = createElemetns("button", {
 
 btnChancel.addEventListener('click', hidePopUp)
 
-// const chancelBtnClickHandler = (elem) => {
-//    e.currentTarget.formInput
-// }
-
-// btnChancel.addEventListener("click", () => {
-//    chancelBtnClickHandler('pin')
-// })
-
 const btnSend = createElemetns("button", {
    className: "form_btn",
    className: "red_btn",
    type: "submit",
    textContent: "Oтправить"
 })
-
-// const sendlBtnClickHandler = (elem) => {
-//   
-// }
-
-// btnSend.addEventListener("click", () => {
-//    sendlBtnClickHandler()
-// })
 
 form.appendChild(buttons)
 buttons.appendChild(btnChancel)
