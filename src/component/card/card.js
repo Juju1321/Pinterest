@@ -91,32 +91,6 @@ export const renderElem = (element) => {
    })
    cardsMenu.appendChild(menuListCards)
 
-   // const menuList = [
-   //    {
-   //       id: 1,
-   //       innerHTML: 'Добавить на доску'
-   //    },
-
-   //    {
-   //       id: 2,
-   //       innerHTML: 'Пожаловаться'
-   //    }
-   // ]
-
-
-   // const renderMenuList = (elem) => {
-   //    const { innerHTML } = elem
-
-   //    const menuItemCard = createElemetns('li', {
-   //       className: 'menu__item-card',
-   //       innerHTML: innerHTML,
-   //    })
-   //    menuListCards.appendChild(menuItemCard)
-   // }
-
-   // menuList.forEach(elem => {
-   //    renderMenuList(elem)
-   // })
    const menuItemCardFirst = createElemetns('li', {
       className:'menu__item-card',
       id: 1,
@@ -140,8 +114,17 @@ menuItemCardLast.addEventListener('click', () => {
    showPopUp(formWrapper, addModuleMenuDesks)
 })
 
-   menuDots.addEventListener('click', () => {
-      menuCard.classList.toggle('open');
+document.addEventListener('DOMContentLoaded', () => {
+   buttonWrapper.addEventListener('click', () => {
+      menuCard.classList.toggle('open')
    })
+   window.addEventListener('click', e => {
+      const target = e.target
+      if(!target.closest('.menu-cards') && !target.closest('.button-wrapper')) {
+         menuCard.classList.remove('open')
+      }
+   })
+})
+
 }
 
