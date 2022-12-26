@@ -3,13 +3,18 @@ import { popupElement } from '../popup/popup.js'
 import { showPopUp } from "../popup/popup.js";
 import { addModuleMenuDesks } from "../popup/popup.js";
 import { formWrapper } from "../form_pin/form_pin.js";
+import { data } from '../../container/dataDesk.js'
+import { cards } from './store.js'
+
+
 
 export const renderElem = (element) => {
    const root = document.querySelector('.cards-wrapper')
-   const { avatarSrc, text, imageSrc } = element;
+   const { id, avatarSrc, text, imageSrc } = element;
 
    const card = createElemetns("div", {
       className: "item-wrapper",
+      id: id
    })
    root.appendChild(card);
 
@@ -65,6 +70,7 @@ export const renderElem = (element) => {
    })
    buttonShowd.appendChild(menuDots);
 
+
    const dots = createElemetns('div', {
       className: 'dots',
    })
@@ -92,7 +98,7 @@ export const renderElem = (element) => {
    cardsMenu.appendChild(menuListCards)
 
    const menuItemCardFirst = createElemetns('li', {
-      className:'menu__item-card',
+      className: 'menu__item-card',
       id: 1,
       innerHTML: 'Добавить на доску'
    })
@@ -101,30 +107,47 @@ export const renderElem = (element) => {
 
    menuItemCardFirst.addEventListener('click', () => {
       showPopUp(addModuleMenuDesks, formWrapper)
-})
-
-const menuItemCardLast = createElemetns('li', {
-   className: 'menu__item-card',
-   id: 2,
-   innerHTML: 'Пожаловаться'
-})
-menuListCards.appendChild(menuItemCardLast)
-
-menuItemCardLast.addEventListener('click', () => {
-   showPopUp(formWrapper, addModuleMenuDesks)
-})
-
-document.addEventListener('DOMContentLoaded', () => {
-   buttonWrapper.addEventListener('click', () => {
-      menuCard.classList.toggle('open')
    })
-   window.addEventListener('click', e => {
-      const target = e.target
-      if(!target.closest('.menu-cards') && !target.closest('.button-wrapper')) {
-         menuCard.classList.remove('open')
-      }
+
+   const menuItemCardLast = createElemetns('li', {
+      className: 'menu__item-card',
+      id: 2,
+      innerHTML: 'Пожаловаться'
    })
-})
+   menuListCards.appendChild(menuItemCardLast)
+
+   menuItemCardLast.addEventListener('click', () => {
+      showPopUp(formWrapper, addModuleMenuDesks)
+   })
+
+   document.addEventListener('DOMContentLoaded', () => {
+      buttonWrapper.addEventListener('click', (e) => {
+         menuCard.classList.toggle('open')
+      })
+      window.addEventListener('click', e => {
+         const target = e.target
+         if (!target.closest('.menuDots')) {
+            menuCard.classList.remove('open')
+         }
+      })
+   })
+
+   // тут по клику на карточку я получаю её значение, которое мне нужно записать в файле popup.js.
+   // не понимаю как результат из (e) записать в переменную из другой обл.видимости.
+
+   let getItem;
+   menuDots.addEventListener('click', (e) => {
+      // ещё встречный вопрос, тут я хожу по карточкам,которые у нас прописаны в store.js, но их не будет,а будут карточки,которые мы будем получать с сервера 
+      // это будет примерно так выглядеть( и соответсвенно перед (e) async)?
+      // getItem = await fetch(url).find(item => item.id == id)
+      // get data = getItem.json()
+      getItem = cards.find(item => item.id == id)
+      console.log(getItem)
+      return getItem
+   })
 
 }
+
+
+
 
