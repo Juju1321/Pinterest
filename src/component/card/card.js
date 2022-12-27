@@ -1,5 +1,8 @@
 import { createElemetns } from "../../utils/createElemet.js";
 import { popupElement } from '../popup/popup.js'
+import { showPopUp } from "../popup/popup.js";
+import { addModuleMenuDesks } from "../popup/popup.js";
+import { formWrapper } from "../form_pin/form_pin.js";
 
 export const renderElem = (element) => {
    const root = document.querySelector('.cards-wrapper')
@@ -88,36 +91,39 @@ export const renderElem = (element) => {
    })
    cardsMenu.appendChild(menuListCards)
 
-   const menuList = [
-      {
-         id: 1,
-         innerHTML: 'Добавить на доску'
-      },
+   const menuItemCardFirst = createElemetns('li', {
+      className:'menu__item-card',
+      id: 1,
+      innerHTML: 'Добавить на доску'
+   })
+   menuListCards.appendChild(menuItemCardFirst)
 
-      {
-         id: 2,
-         innerHTML: 'Пожаловаться'
+
+   menuItemCardFirst.addEventListener('click', () => {
+      showPopUp(addModuleMenuDesks, formWrapper)
+})
+
+const menuItemCardLast = createElemetns('li', {
+   className: 'menu__item-card',
+   id: 2,
+   innerHTML: 'Пожаловаться'
+})
+menuListCards.appendChild(menuItemCardLast)
+
+menuItemCardLast.addEventListener('click', () => {
+   showPopUp(formWrapper, addModuleMenuDesks)
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+   buttonWrapper.addEventListener('click', () => {
+      menuCard.classList.toggle('open')
+   })
+   window.addEventListener('click', e => {
+      const target = e.target
+      if(!target.closest('.menu-cards') && !target.closest('.button-wrapper')) {
+         menuCard.classList.remove('open')
       }
-   ]
-
-   const renderMenuList = (elem) => {
-      const { innerHTML } = elem
-
-      const menuItemCard = createElemetns('li', {
-         className: 'menu__item-card',
-         innerHTML: innerHTML,
-      })
-      menuListCards.appendChild(menuItemCard)
-   }
-
-   menuList.forEach(elem => {
-      renderMenuList(elem)
    })
-
-   menuDots.addEventListener('click', () => {
-      menuCard.classList.toggle('open');
-   })
-
+})
 }
-
 
