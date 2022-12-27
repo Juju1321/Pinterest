@@ -47,10 +47,10 @@ main.appendChild(popUpContainer)
 
 export const showPopUp = (element, remove) => {
    popUpContainer.style.display = 'flex'
-   if(document.querySelector('.form-wrapper')){
+   if(document.querySelector('.form-wrapper') && document.querySelector('.addModuleMenuDesks')){
       popUpContainer.appendChild(element)
       popUpContainer.removeChild(remove)
-   }else{
+   } else {
       popUpContainer.appendChild(remove)
       popUpContainer.appendChild(element)
       popUpContainer.removeChild(remove)
