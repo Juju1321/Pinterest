@@ -30,41 +30,6 @@
       transition: all .2s;
    }
 }
-.desk__two{
-   padding: 10px 0;
-   &:hover{
-      transform: scale(1.1);
-      transition: all .2s;
-   }
-}
-.desk__three{
-   padding: 10px 0;
-   &:hover{
-      transform: scale(1.1);
-      transition: all .2s;
-   }
-}
-
-// .popup.open ul {
-//     display: block;
-//  }
-//  .popup__button {
-//     white-space: nowrap;
-//     height: 48px;
-//     min-width: 60px;
-//     background-color: black;
-//     border-radius: 30px;
-//     padding: 0 30px;
-//     position: relative;
-//  }
-//  .popup__button:hover{
-//     background-color: rgb(56, 56, 56);
-//     transition: all .3s;
-//     transform: scale(1.1);
-//  }
-//  .popup__button span {
-//     color: aliceblue;
-// }
 
 .popup__bg {
    position: fixed;
@@ -78,3 +43,4 @@
    z-index: 10;
    background-color: rgba(0,0,0, 0.9);
 }
+

@@ -1,0 +1,16 @@
+@import url('../style/fonts.scss');
+@import url('../style/nullstyle.scss');
+
+
+.popup__board{
+      min-width: 1000px;
+      padding-top: 15px;
+      border-radius: 10px;
+      box-shadow: inset 0px 0px 10px 1px rgb(237, 237, 237);
+      background-color: #fff;
+      font-family: 'PT-Sans';
+      font-size: 30px;
+      
+      justify-content: center;
+      align-items: center;
+   }

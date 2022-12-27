@@ -37,8 +37,13 @@ Object.keys(data).forEach(key => {
 
 
    buttonAddDeskItem.addEventListener('click', (e) => {
-      // сюда необходимо записать переменную, в которую записан результат из getItem
-      data[key].push()
+      const newObj = {
+         id: '0',
+         avatarSrc: 'https://www.formica.com/pl-pl/-/media/formica/emea/products/swatch-images/f1485/f1485-swatch.jpg',
+         text: "image 1",
+         imageSrc: 'https://i.pinimg.com/564x/73/a9/8a/73a98a372c1ddf306986c0e15ad7f18d.jpg',
+      }
+      data[key].push(newObj)
       console.log(data)
    })
 })
@@ -55,9 +60,15 @@ popUpContainer.style.display = 'none'
 main.appendChild(popUpContainer)
 
 export const showPopUp = (element, remove) => {
-   popUpContainer.appendChild(element)
    popUpContainer.style.display = 'flex'
-   //popUpContainer.removeChild(remove)
+   if (document.querySelector('.form-wrapper')) {
+      popUpContainer.appendChild(element)
+      popUpContainer.removeChild(remove)
+   } else {
+      popUpContainer.appendChild(remove)
+      popUpContainer.appendChild(element)
+      popUpContainer.removeChild(remove)
+   }
 }
 
 export const hidePopUp = (cards) => {
@@ -67,3 +78,5 @@ export const hidePopUp = (cards) => {
 popUpContainer.addEventListener('click', hidePopUp)
 
 addModuleMenuDesks.addEventListener('click', hidePopUp)
+
+
