@@ -3,9 +3,6 @@ import { data } from '../../container/dataDesk.js'
 import { renderElem } from '../card/card.js'
 import { cardsStore } from '../card/store.js'
 
-
-
-
 export const addModuleMenuDesks = createElemetns('div', {
    className: 'add-module__menu'
 })
@@ -26,8 +23,6 @@ const buttonAll = createElemetns('div', {
 addModuleMenuDesks.appendChild(buttonAll)
 
 
-
-
 Object.keys(data).forEach(key => {
    const buttonAddDeskItem = createElemetns('button', {
       className: 'desk__one',
@@ -36,39 +31,32 @@ Object.keys(data).forEach(key => {
    buttonAll.appendChild(buttonAddDeskItem)
    buttonAddDeskItem.id = key
 
-
    buttonAddDeskItem.addEventListener('click', (e) => {
       data[key].push(cardsStore.cardForAdding)
       console.log(data)
    })
 })
 
-
-
 //popup
 
 const main = document.getElementById('main')
 
 const popUpContainer = createElemetns('div', {
-   className: 'popup__bg'
+   className: 'popup__bg',
+   id: 'popup'
 })
 popUpContainer.style.display = 'none'
 main.appendChild(popUpContainer)
 
-export const showPopUp = (element, remove) => {
+export const showPopUp = (element) => {
    popUpContainer.style.display = 'flex'
-   if (document.querySelector('.form-wrapper')) {
-      popUpContainer.appendChild(element)
-      popUpContainer.removeChild(remove)
-   } else {
-      popUpContainer.appendChild(remove)
-      popUpContainer.appendChild(element)
-      popUpContainer.removeChild(remove)
-   }
+   popUpContainer.appendChild(element)
 }
 
 export const hidePopUp = () => {
    popUpContainer.style.display = 'none'
+   const popUpChild = document.querySelector('#popup > div')
+   popUpContainer.removeChild(popUpChild)
 }
 
 popUpContainer.addEventListener('click', hidePopUp)

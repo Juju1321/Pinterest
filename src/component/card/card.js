@@ -106,7 +106,7 @@ export const renderElem = (element) => {
 
 
    menuItemCardFirst.addEventListener('click', () => {
-      showPopUp(addModuleMenuDesks, formWrapper)
+      showPopUp(addModuleMenuDesks)
    })
 
    const menuItemCardLast = createElemetns('li', {
@@ -117,11 +117,8 @@ export const renderElem = (element) => {
    menuListCards.appendChild(menuItemCardLast)
 
    menuItemCardLast.addEventListener('click', () => {
-      showPopUp(formWrapper, addModuleMenuDesks)
+      showPopUp(formWrapper)
    })
-
-
-
 
    menuDots.addEventListener('click', (e) => {
       menuCard.classList.toggle('open')
@@ -132,10 +129,6 @@ export const renderElem = (element) => {
          menuCard.classList.remove('open')
       }
    })
-
-
-
-
 
    menuDots.addEventListener('click', (e) => {
       const getItem = cardsStore.cards.find(item => item.id == id)

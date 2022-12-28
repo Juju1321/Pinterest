@@ -3,16 +3,14 @@ import { createElemetns } from "../utils/createElemet.js"
 import { cardsStore } from "../component/card/store.js"
 import { data } from "./dataDesk.js"
 
-
-
-
 const menu = document.querySelector('.menu')
 
 
 //popUp for board
 
 const popUpContainer = createElemetns('div', {
-   className: 'popup__bg'
+   className: 'popup__bg',
+   id: 'popup'
 })
 popUpContainer.style.display = 'none'
 main.appendChild(popUpContainer)
@@ -24,19 +22,15 @@ const showPopUp = (element) => {
 
 const hidePopUp = () => {
    popUpContainer.style.display = 'none'
-   const popUpChild = document.querySelector('.popup__board')
-   console.log(popUpChild)
+   const popUpChild = document.querySelector('#popup > div')
    popUpContainer.removeChild(popUpChild)
 }
-
 
 popUpContainer.addEventListener('click', (e) => {
    if (e.target.className === "popup__bg") {
       hidePopUp()
    }
 })
-
-
 
 //выпадающее меню "Выберите доску"
 
@@ -72,7 +66,6 @@ keys.forEach(key => {
    })
    popUpBoard.style.display = 'none'
    popUpBoard.appendChild(picWrapper)
-   popUpContainer.appendChild(popUpBoard)
 
 
    // Рендер карточек в доску
