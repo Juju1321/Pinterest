@@ -136,6 +136,7 @@ export const renderElem = (element) => {
 
 
 
+
    menuDots.addEventListener('click', (e) => {
       const getItem = cardsStore.cards.find(item => item.id == id)
       console.log(getItem)
