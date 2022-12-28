@@ -3,13 +3,18 @@ import { popupElement } from '../popup/popup.js'
 import { showPopUp } from "../popup/popup.js";
 import { addModuleMenuDesks } from "../popup/popup.js";
 import { formWrapper } from "../form_pin/form_pin.js";
+import { data } from '../../container/dataDesk.js'
+import { cardsStore } from './store.js'
+
+
 
 export const renderElem = (element) => {
    const root = document.querySelector('.cards-wrapper')
-   const { avatarSrc, text, imageSrc } = element;
+   const { id, avatarSrc, text, imageSrc } = element;
 
    const card = createElemetns("div", {
       className: "item-wrapper",
+      id: id
    })
    root.appendChild(card);
 
@@ -65,6 +70,7 @@ export const renderElem = (element) => {
    })
    buttonShowd.appendChild(menuDots);
 
+
    const dots = createElemetns('div', {
       className: 'dots',
    })
@@ -92,7 +98,7 @@ export const renderElem = (element) => {
    cardsMenu.appendChild(menuListCards)
 
    const menuItemCardFirst = createElemetns('li', {
-      className:'menu__item-card',
+      className: 'menu__item-card',
       id: 1,
       innerHTML: 'Добавить на доску'
    })
@@ -101,29 +107,45 @@ export const renderElem = (element) => {
 
    menuItemCardFirst.addEventListener('click', () => {
       showPopUp(addModuleMenuDesks, formWrapper)
-})
+   })
 
-const menuItemCardLast = createElemetns('li', {
-   className: 'menu__item-card',
-   id: 2,
-   innerHTML: 'Пожаловаться'
-})
-menuListCards.appendChild(menuItemCardLast)
+   const menuItemCardLast = createElemetns('li', {
+      className: 'menu__item-card',
+      id: 2,
+      innerHTML: 'Пожаловаться'
+   })
+   menuListCards.appendChild(menuItemCardLast)
 
-menuItemCardLast.addEventListener('click', () => {
-   showPopUp(formWrapper, addModuleMenuDesks)
-})
+   menuItemCardLast.addEventListener('click', () => {
+      showPopUp(formWrapper, addModuleMenuDesks)
+   })
 
-document.addEventListener('DOMContentLoaded', () => {
-   buttonWrapper.addEventListener('click', () => {
+
+
+
+   menuDots.addEventListener('click', (e) => {
       menuCard.classList.toggle('open')
    })
    window.addEventListener('click', e => {
       const target = e.target
-      if(!target.closest('.menu-cards') && !target.closest('.button-wrapper')) {
+      if (!target.closest('.menuDots')) {
          menuCard.classList.remove('open')
       }
    })
-})
+
+
+
+
+
+   menuDots.addEventListener('click', (e) => {
+      const getItem = cardsStore.cards.find(item => item.id == id)
+      console.log(getItem)
+      cardsStore.setCardsForAdding(getItem)
+      return getItem
+   })
+
 }
+
+
+
 

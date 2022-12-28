@@ -1,0 +1,56 @@
+@import url('../style/fonts.scss');
+@import url('../style/nullstyle.scss');
+
+
+.popup__board{
+      max-width: 1000px;
+      height: auto;
+      padding-top: 15px;
+      border-radius: 10px;
+      box-shadow: inset 0px 0px 10px 1px rgb(237, 237, 237);
+      background-color: #fff;
+      font-family: 'PT-Sans';
+      font-size: 30px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+   }
+
+.picture__wrapper{
+   display: flex;
+   margin: 10px  15px 0px 15px;
+
+
+  .item-wrapper {
+    padding-bottom: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+
+    .picture {
+      width: 236px;
+      height: auto;
+      border-radius: 16px;
+      position: relative;
+      cursor: zoom-in;
+    }
+
+    .card-details {
+      display: flex;
+      padding: 8px 6px 16px;
+      align-items: center;
+
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      .card-description__text {
+        font-size: 14px;
+      }
+    }
+  }
+
+}
+
