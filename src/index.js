@@ -34,3 +34,22 @@ cards.forEach((element) => {
    renderElem(element)
 })
 
+//get input
+let searc = document.getElementById("search");
+//get list of value
+let list = document.querySelectorAll(".item-wrapper");
+
+//function search on the list.
+function search (){
+  for(let i = 0; i < cards.length; i += 1){
+   //check if the element contains the value of the input
+   if(list[i].innerText.toLowerCase().includes(searc.value.toLowerCase())){
+      list[i].style.display = "block";
+   } else{
+      list[i].style.display = "none";
+   }
+  }
+}
+
+//to the change run search.
+searc.addEventListener('input', search);

@@ -69,3 +69,14 @@ export const cards = [
     imageSrc: 'https://i.pinimg.com/564x/96/4a/0c/964a0c56bcfb7ec36f0d001bc8d29089.jpg',
   },
 ]
+
+function filter(val, list) {
+  let result=[];
+    list.forEach(i=>{
+     if(i.indexOf(val)!=-1){
+        result.push(i)
+     }
+  })
+return result;
+}
+
