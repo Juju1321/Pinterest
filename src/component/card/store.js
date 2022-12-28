@@ -9,7 +9,6 @@ export const cardsStore = {
          .then(data => data.json())
          .then(data => {
             this.cards = data
-            console.log(this.cards = data)
             return data
          })
    },

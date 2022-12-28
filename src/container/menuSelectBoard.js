@@ -17,21 +17,19 @@ const popUpContainer = createElemetns('div', {
 popUpContainer.style.display = 'none'
 main.appendChild(popUpContainer)
 
-
-export const showPopUp = (element) => {
+const showPopUp = (element) => {
    popUpContainer.style.display = 'flex'
    popUpContainer.appendChild(element)
 }
 
-export const hidePopUp = () => {
+const hidePopUp = () => {
    popUpContainer.style.display = 'none'
-   const popUpChild = document.querySelector('.popup__bg >div')
-   //const child = document.querySelector('picture__wrapper')
+   const popUpChild = document.querySelector('.popup__board')
    console.log(popUpChild)
    popUpContainer.removeChild(popUpChild)
-   //child.replaceChildren()
-
 }
+
+
 popUpContainer.addEventListener('click', (e) => {
    if (e.target.className === "popup__bg") {
       hidePopUp()
@@ -56,6 +54,11 @@ keys.forEach(key => {
    })
    listUl.appendChild(itemli)
    itemli.id = key
+
+
+
+
+
 
    //  Модальное окно "Доска"
    const popUpBoard = createElemetns('div', {
@@ -109,18 +112,18 @@ keys.forEach(key => {
       cardDetails.appendChild(imgDescription);
    }
 
+
+
    // отображение карточек при клике 
 
-
    itemli.addEventListener('click', (e) => {
-      popUpBoard.style.display = 'flex'
       const target = data[key]
+      console.log(target)
       target.forEach((element) => {
          newElem(element)
       })
+      popUpBoard.style.display = 'flex'
       showPopUp(popUpBoard)
-      console.log(target)
-      console.log(data)
    })
 })
 
