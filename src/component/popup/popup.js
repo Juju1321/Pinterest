@@ -6,7 +6,6 @@ import { cardsStore } from '../card/store.js'
 
 
 
-// const addModuleMenuDesks = document.querySelector('.add-module__menu')
 export const addModuleMenuDesks = createElemetns('div', {
    className: 'add-module__menu'
 })
@@ -28,6 +27,7 @@ addModuleMenuDesks.appendChild(buttonAll)
 
 
 
+
 Object.keys(data).forEach(key => {
    const buttonAddDeskItem = createElemetns('button', {
       className: 'desk__one',
@@ -42,6 +42,7 @@ Object.keys(data).forEach(key => {
       console.log(data)
    })
 })
+
 
 
 //popup
@@ -66,7 +67,7 @@ export const showPopUp = (element, remove) => {
    }
 }
 
-export const hidePopUp = (cards) => {
+export const hidePopUp = () => {
    popUpContainer.style.display = 'none'
 }
 
