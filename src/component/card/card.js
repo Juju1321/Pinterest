@@ -4,7 +4,7 @@ import { showPopUp } from "../popup/popup.js";
 import { addModuleMenuDesks } from "../popup/popup.js";
 import { formWrapper } from "../form_pin/form_pin.js";
 import { data } from '../../container/dataDesk.js'
-import { cards } from './store.js'
+import { cardsStore } from './store.js'
 
 
 
@@ -120,29 +120,26 @@ export const renderElem = (element) => {
       showPopUp(formWrapper, addModuleMenuDesks)
    })
 
-   document.addEventListener('DOMContentLoaded', () => {
-      buttonWrapper.addEventListener('click', (e) => {
-         menuCard.classList.toggle('open')
-      })
-      window.addEventListener('click', e => {
-         const target = e.target
-         if (!target.closest('.menuDots')) {
-            menuCard.classList.remove('open')
-         }
-      })
+
+
+
+   menuDots.addEventListener('click', (e) => {
+      menuCard.classList.toggle('open')
+   })
+   window.addEventListener('click', e => {
+      const target = e.target
+      if (!target.closest('.menuDots')) {
+         menuCard.classList.remove('open')
+      }
    })
 
-   // тут по клику на карточку я получаю её значение, которое мне нужно записать в файле popup.js.
-   // не понимаю как результат из (e) записать в переменную из другой обл.видимости.
 
-   let getItem;
+
+
    menuDots.addEventListener('click', (e) => {
-      // ещё встречный вопрос, тут я хожу по карточкам,которые у нас прописаны в store.js, но их не будет,а будут карточки,которые мы будем получать с сервера 
-      // это будет примерно так выглядеть( и соответсвенно перед (e) async)?
-      // getItem = await fetch(url).find(item => item.id == id)
-      // get data = getItem.json()
-      getItem = cards.find(item => item.id == id)
+      const getItem = cardsStore.cards.find(item => item.id == id)
       console.log(getItem)
+      cardsStore.setCardsForAdding(getItem)
       return getItem
    })
 

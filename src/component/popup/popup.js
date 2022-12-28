@@ -1,6 +1,7 @@
 import { createElemetns } from '../../utils/createElemet.js'
 import { data } from '../../container/dataDesk.js'
 import { renderElem } from '../card/card.js'
+import { cardsStore } from '../card/store.js'
 
 
 
@@ -37,13 +38,7 @@ Object.keys(data).forEach(key => {
 
 
    buttonAddDeskItem.addEventListener('click', (e) => {
-      const newObj = {
-         id: '0',
-         avatarSrc: 'https://www.formica.com/pl-pl/-/media/formica/emea/products/swatch-images/f1485/f1485-swatch.jpg',
-         text: "image 1",
-         imageSrc: 'https://i.pinimg.com/564x/73/a9/8a/73a98a372c1ddf306986c0e15ad7f18d.jpg',
-      }
-      data[key].push(newObj)
+      data[key].push(cardsStore.cardForAdding)
       console.log(data)
    })
 })
