@@ -3,9 +3,12 @@ import { data } from '../../container/dataDesk.js'
 import { renderElem } from '../card/card.js'
 import { cardsStore } from '../card/store.js'
 
+
+
 export const addModuleMenuDesks = createElemetns('div', {
    className: 'add-module__menu'
 })
+
 
 addModuleMenuDesks.addEventListener('click', (e) => {
    e.stopPropagation()
@@ -36,6 +39,9 @@ Object.keys(data).forEach(key => {
       console.log(data)
    })
 })
+
+
+
 
 //popup
 

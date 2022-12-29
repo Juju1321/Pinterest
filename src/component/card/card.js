@@ -7,7 +7,7 @@ import { data } from '../../container/dataDesk.js'
 import { cardsStore } from './store.js'
 
 
-
+const carSum = []
 export const renderElem = (element) => {
    const root = document.querySelector('.cards-wrapper')
    const { id, avatarSrc, text, imageSrc } = element;
@@ -107,6 +107,8 @@ export const renderElem = (element) => {
 
    menuItemCardFirst.addEventListener('click', () => {
       showPopUp(addModuleMenuDesks)
+      // localStorage.setItem('itemCard', addModuleMenuDesks)
+
    })
 
    const menuItemCardLast = createElemetns('li', {
@@ -129,6 +131,32 @@ export const renderElem = (element) => {
          menuCard.classList.remove('open')
       }
    })
+
+
+
+   const cad = cardsStore.cards.find(item => item.id == id)
+   console.log(cad)
+   carSum.push(cad)
+   console.log(carSum)
+
+   let sear = document.querySelector('.search')
+   let list = document.querySelectorAll('.item-wrapper')
+
+   function searc() {
+      for (let i = 0; i < carSum.length; i += 1) {
+         if (list[i].innerText.toLowerCase().includes(sear.value.toLowerCase())) {
+            list[i].style.display = 'block'
+         } else {
+            list[i].style.display = 'none'
+         }
+      }
+   }
+
+   sear.addEventListener('input', searc)
+
+
+
+
 
    menuDots.addEventListener('click', (e) => {
       const getItem = cardsStore.cards.find(item => item.id == id)

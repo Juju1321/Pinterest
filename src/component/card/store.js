@@ -11,13 +11,17 @@ export const cardsStore = {
             this.cards = data
             return data
          })
+
    },
+
 
    setCardsForAdding: function (card) {
       this.cardForAdding = card
    },
 
 }
+
+console.log(cardsStore)
 export const toggleSpinner = () => {
    const spinner = document.getElementById("spinner")
    if (spinner.style.display === "flex") {
@@ -26,5 +30,6 @@ export const toggleSpinner = () => {
       spinner.style.display = "flex"
    }
 }
+
 
 

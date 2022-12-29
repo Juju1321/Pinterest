@@ -2,6 +2,7 @@ import { renderElem } from "../component/card/card.js"
 import { createElemetns } from "../utils/createElemet.js"
 import { cardsStore } from "../component/card/store.js"
 import { data } from "./dataDesk.js"
+import { showPopUp, hidePopUp } from "../component/popup/popup.js"
 
 const menu = document.querySelector('.menu')
 
@@ -14,17 +15,6 @@ const popUpContainer = createElemetns('div', {
 })
 popUpContainer.style.display = 'none'
 main.appendChild(popUpContainer)
-
-const showPopUp = (element) => {
-   popUpContainer.style.display = 'flex'
-   popUpContainer.appendChild(element)
-}
-
-const hidePopUp = () => {
-   popUpContainer.style.display = 'none'
-   const popUpChild = document.querySelector('#popup > div')
-   popUpContainer.removeChild(popUpChild)
-}
 
 popUpContainer.addEventListener('click', (e) => {
    if (e.target.className === "popup__bg") {
@@ -48,10 +38,6 @@ keys.forEach(key => {
    })
    listUl.appendChild(itemli)
    itemli.id = key
-
-
-
-
 
 
    //  Модальное окно "Доска"
@@ -111,12 +97,12 @@ keys.forEach(key => {
 
    itemli.addEventListener('click', (e) => {
       const target = data[key]
-      console.log(target)
       target.forEach((element) => {
          newElem(element)
       })
       popUpBoard.style.display = 'flex'
       showPopUp(popUpBoard)
+      localStorage.setItem("data", JSON.stringify(data))
    })
 })
 
