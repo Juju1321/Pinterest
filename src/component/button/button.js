@@ -7,7 +7,7 @@ export const buttonSelectDesk = createElemetns('button', {
 })
 menu.appendChild(buttonSelectDesk)
 const spanButtonText = createElemetns('span', {
-   innerText: 'Select desk',
+   innerText: 'Выбрать доску',
 })
 buttonSelectDesk.appendChild(spanButtonText)
 let buttonElem = menu.querySelector('.menu__button');

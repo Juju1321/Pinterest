@@ -1,7 +1,13 @@
 import { createElemetns } from "../../utils/createElemet.js";
-import { showPopUp, hidePopUp } from "../popup/popUpDarkForm.js";
+import { hidePopUp } from "../popup/popup.js";
 
-const formWrapper = document.getElementById("form-wrapper")
+export const formWrapper = createElemetns("div", {
+   className: 'form-wrapper'
+})
+
+formWrapper.addEventListener('click', (e) => {
+   e.stopPropagation()
+})
 
 const form = createElemetns("form", {
    className: "form",
@@ -98,7 +104,6 @@ formText.forEach(item => {
    formControlRadio.appendChild(formInputText)
 })
 
-
 const buttons = createElemetns("div", {
    className: "buttons",
 })
@@ -107,22 +112,29 @@ const btnChancel = createElemetns("button", {
    textContent: "Отмена"
 })
 
-btnChancel.addEventListener("click", () => {
-   hidePopUp()
-})
+btnChancel.addEventListener('click', hidePopUp)
 
 const btnSend = createElemetns("button", {
    className: "form_btn",
    className: "red_btn",
    type: "submit",
-   action: "https://...",
-   method: "post",
    textContent: "Oтправить",
 })
 
-btnSend.addEventListener("click", () => {
-   hidePopUp()
-})
+async function btnClickHandler(e) {
+   e.preventDefault();
+
+   let response = await fetch('https://jsonplaceholder.typicode.com/guide/', {
+      method: 'POST',
+      body: new FormData(form)
+   });
+
+   let result = await response.json();
+   alert(result.message);
+   form.reset();
+};
+
+btnSend.addEventListener("click", btnClickHandler)
 
 form.appendChild(buttons)
 buttons.appendChild(btnChancel)
