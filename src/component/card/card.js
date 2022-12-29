@@ -135,9 +135,8 @@ export const renderElem = (element) => {
 
 
    const cad = cardsStore.cards.find(item => item.id == id)
-   console.log(cad)
    carSum.push(cad)
-   console.log(carSum)
+
 
    let sear = document.querySelector('.search')
    let list = document.querySelectorAll('.item-wrapper')
@@ -160,7 +159,6 @@ export const renderElem = (element) => {
 
    menuDots.addEventListener('click', (e) => {
       const getItem = cardsStore.cards.find(item => item.id == id)
-      console.log(getItem)
       cardsStore.setCardsForAdding(getItem)
       return getItem
    })

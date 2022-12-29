@@ -14,3 +14,10 @@ let buttonElem = menu.querySelector('.menu__button');
 buttonElem.addEventListener('click', () => {
    menu.classList.toggle('open');
 })
+
+window.addEventListener('click', e => {
+   const target = e.target
+   if (!target.closest('.menu')) {
+      menu.classList.remove('open')
+   }
+})

@@ -6,7 +6,6 @@ import { showPopUp, hidePopUp } from "../component/popup/popup.js"
 
 const menu = document.querySelector('.menu')
 
-
 //popUp for board
 
 const popUpContainer = createElemetns('div', {
@@ -22,13 +21,16 @@ popUpContainer.addEventListener('click', (e) => {
    }
 })
 
+
 //выпадающее меню "Выберите доску"
+
 
 export const keys = Object.keys(data)
 const listUl = document.createElement('ul')
 listUl.className = 'menu__list'
 menu.appendChild(listUl)
 document.querySelector('.menu__list').hidden = true
+
 
 
 keys.forEach(key => {
@@ -55,51 +57,50 @@ keys.forEach(key => {
 
 
    // Рендер карточек в доску
-   const newElem = (elem) => {
-      const { id, avatarSrc, text, imageSrc } = elem;
-      const card = createElemetns("div", {
-         className: "item-wrapper",
-         id: id
-      })
-      picWrapper.appendChild(card);
+   const target = data[key]
+   const newElem = (target) => {
+      target.forEach(elem => {
+         const { id, avatarSrc, text, imageSrc } = elem;
+         const card = createElemetns("div", {
+            className: "item-wrapper",
+            id: id
+         })
+         picWrapper.appendChild(card);
 
-      const imgWrapper = createElemetns("div", {
-         className: "picture-wrapper",
-      })
-      card.appendChild(imgWrapper);
+         const imgWrapper = createElemetns("div", {
+            className: "picture-wrapper",
+         })
+         card.appendChild(imgWrapper);
 
-      const picture = createElemetns("img", {
-         className: "picture",
-         src: imageSrc,
-      })
-      imgWrapper.appendChild(picture);
+         const picture = createElemetns("img", {
+            className: "picture",
+            src: imageSrc,
+         })
+         imgWrapper.appendChild(picture);
 
-      const cardDetails = createElemetns("div", {
-         className: "card-details",
-      })
-      card.appendChild(cardDetails);
+         const cardDetails = createElemetns("div", {
+            className: "card-details",
+         })
+         card.appendChild(cardDetails);
 
-      const userAvatar = createElemetns("img", {
-         src: avatarSrc,
-      })
-      cardDetails.appendChild(userAvatar);
+         const userAvatar = createElemetns("img", {
+            src: avatarSrc,
+         })
+         cardDetails.appendChild(userAvatar);
 
-      const imgDescription = createElemetns("div", {
-         className: "card-description__text",
-         innerHTML: text,
+         const imgDescription = createElemetns("div", {
+            className: "card-description__text",
+            innerHTML: text,
+         })
+         cardDetails.appendChild(imgDescription);
       })
-      cardDetails.appendChild(imgDescription);
    }
-
-
 
    // отображение карточек при клике 
 
+
    itemli.addEventListener('click', (e) => {
-      const target = data[key]
-      target.forEach((element) => {
-         newElem(element)
-      })
+      newElem(target)
       popUpBoard.style.display = 'flex'
       showPopUp(popUpBoard)
       localStorage.setItem("data", JSON.stringify(data))
