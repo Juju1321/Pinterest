@@ -12,6 +12,14 @@
 </head>
 
 <body>
+   <div style="display: none" id="spinner" class="spinner">
+      <div class="lds-ring">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+      </div>
+   </div>
    <header class="header">
       <div class="container">
          <div class="wrapper">
@@ -22,7 +30,7 @@
       </div>
    </header>
    <main id="main">
-      <div class="container" id="root">
+      <div class="container" id="root" class='spinner'>
          <div class="cards-wrapper"></div>
       </div>
    </main>
