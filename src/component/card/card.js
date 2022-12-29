@@ -3,13 +3,18 @@ import { popupElement } from '../popup/popup.js'
 import { showPopUp } from "../popup/popup.js";
 import { addModuleMenuDesks } from "../popup/popup.js";
 import { formWrapper } from "../form_pin/form_pin.js";
+import { data } from '../../container/dataDesk.js'
+import { cardsStore } from './store.js'
 
+
+const carSum = []
 export const renderElem = (element) => {
    const root = document.querySelector('.cards-wrapper')
-   const { avatarSrc, text, imageSrc } = element;
+   const { id, avatarSrc, text, imageSrc } = element;
 
    const card = createElemetns("div", {
       className: "item-wrapper",
+      id: id
    })
    root.appendChild(card);
 
@@ -65,6 +70,7 @@ export const renderElem = (element) => {
    })
    buttonShowd.appendChild(menuDots);
 
+
    const dots = createElemetns('div', {
       className: 'dots',
    })
@@ -92,7 +98,7 @@ export const renderElem = (element) => {
    cardsMenu.appendChild(menuListCards)
 
    const menuItemCardFirst = createElemetns('li', {
-      className:'menu__item-card',
+      className: 'menu__item-card',
       id: 1,
       innerHTML: 'Добавить на доску'
    })
@@ -100,30 +106,65 @@ export const renderElem = (element) => {
 
 
    menuItemCardFirst.addEventListener('click', () => {
-      showPopUp(addModuleMenuDesks, formWrapper)
-})
+      showPopUp(addModuleMenuDesks)
+      // localStorage.setItem('itemCard', addModuleMenuDesks)
 
-const menuItemCardLast = createElemetns('li', {
-   className: 'menu__item-card',
-   id: 2,
-   innerHTML: 'Пожаловаться'
-})
-menuListCards.appendChild(menuItemCardLast)
+   })
 
-menuItemCardLast.addEventListener('click', () => {
-   showPopUp(formWrapper, addModuleMenuDesks)
-})
+   const menuItemCardLast = createElemetns('li', {
+      className: 'menu__item-card',
+      id: 2,
+      innerHTML: 'Пожаловаться'
+   })
+   menuListCards.appendChild(menuItemCardLast)
 
-document.addEventListener('DOMContentLoaded', () => {
-   buttonWrapper.addEventListener('click', () => {
+   menuItemCardLast.addEventListener('click', () => {
+      showPopUp(formWrapper)
+   })
+
+   menuDots.addEventListener('click', (e) => {
       menuCard.classList.toggle('open')
    })
    window.addEventListener('click', e => {
       const target = e.target
-      if(!target.closest('.menu-cards') && !target.closest('.button-wrapper')) {
+      if (!target.closest('.menuDots')) {
          menuCard.classList.remove('open')
       }
    })
-})
+
+
+
+   const cad = cardsStore.cards.find(item => item.id == id)
+   carSum.push(cad)
+
+
+   let sear = document.querySelector('.search')
+   let list = document.querySelectorAll('.item-wrapper')
+
+   function searc() {
+      for (let i = 0; i < carSum.length; i += 1) {
+         if (list[i].innerText.toLowerCase().includes(sear.value.toLowerCase())) {
+            list[i].style.display = 'block'
+         } else {
+            list[i].style.display = 'none'
+         }
+      }
+   }
+
+   sear.addEventListener('input', searc)
+
+
+
+
+
+   menuDots.addEventListener('click', (e) => {
+      const getItem = cardsStore.cards.find(item => item.id == id)
+      cardsStore.setCardsForAdding(getItem)
+      return getItem
+   })
+
 }
+
+
+
 
