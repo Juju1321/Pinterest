@@ -2,7 +2,7 @@ import { createElemetns } from "../../utils/createElemet.js";
 import { hidePopUp } from "../popup/popup.js";
 
 export const formWrapper = createElemetns("div", {
-   className:'form-wrapper'
+   className: 'form-wrapper'
 })
 
 formWrapper.addEventListener('click', (e) => {
@@ -118,8 +118,23 @@ const btnSend = createElemetns("button", {
    className: "form_btn",
    className: "red_btn",
    type: "submit",
-   textContent: "Oтправить"
+   textContent: "Oтправить",
 })
+
+async function btnClickHandler(e) {
+   e.preventDefault();
+
+   let response = await fetch('https://jsonplaceholder.typicode.com/guide/', {
+      method: 'POST',
+      body: new FormData(form)
+   });
+
+   let result = await response.json();
+   alert(result.message);
+   form.reset();
+};
+
+btnSend.addEventListener("click", btnClickHandler)
 
 form.appendChild(buttons)
 buttons.appendChild(btnChancel)

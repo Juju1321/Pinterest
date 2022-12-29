@@ -21,6 +21,3 @@ const renderCards = async () => {
 
 renderCards()
 
-
-
-
